@@ -11,7 +11,12 @@
 	export default {
 		data () {
 			return {
-				counters: {}
+				counters: {
+					total: 0,
+					1: 0,
+					2: 0,
+					3: 0
+				}
 			}
 		},
 		computed: {
@@ -21,19 +26,22 @@
 		},
 		watch: {
 			tasks: function () {
-				this.counters = {
-					total: 0,
-					1: 0,
-					2: 0,
-					3: 0
-				};
-
+				this.setDefaultCountersState();
 				this.tasks.forEach(task => {
 					this.counters[task.status_id]++;
 					this.counters.total++;
 				});
 			},
 		},
+        methods: {
+			setDefaultCountersState: function () {
+				for (const counter in this.counters) {
+					if (this.counters.hasOwnProperty(counter)) {
+						this.counters[counter] = 0;
+					}
+				}
+			}
+        }
 	}
 </script>
 

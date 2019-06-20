@@ -16,7 +16,6 @@
 	import StatusBar from './StatusBar.vue'
 
 	export default {
-		name: 'Dashboard',
 		components: {
 			Navigation,
 			TasksList,

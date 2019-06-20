@@ -15,7 +15,6 @@
 	import { mapState } from 'vuex';
 
 	export default {
-		name: 'Navigation',
 		props: {
 			filters: Array
         },
